@@ -56,7 +56,24 @@ contenedordeTablas<-html_nodes(tablaProductos,"table")
 tabla1<-html_table(contenedordeTablas[1][[1]])
 
 tabla2<-html_table(contenedordeTablas[2][[1]])
+
 sprint(tabla1)
+
 contenedordeTablas<-html_nodes((tablaProductos,""))
 
-install.packages("ggplot2")
+install.packages('ggplot2')
+
+library('ggplot2')
+
+#graficar tabla 1
+tabla1 %>%
+ ggplot() + 
+  aes (x=NOMBRE,y=PRECIO) +
+  geom_bar(stat="identity")
+
+ #graficar tabla 2
+tabla2 %>%
+  ggplot() + 
+  aes (x=NOMBRE,y=PRECIO) +
+  geom_bar(stat="identity")
+
