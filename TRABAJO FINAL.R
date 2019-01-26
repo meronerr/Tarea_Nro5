@@ -37,22 +37,20 @@ textoMostrador<-gsub("[¿]","", textoMostrador)
 textoMostrador<-gsub("MERCADOS","", textoMostrador)
 textoMostrador<-gsub("Síganos","", textoMostrador)
 textoMostrador<-gsub("\"","", textoMostrador)
-textoMostrador<-gsub("","", textoMostrador)
+textoMostrador<-gsub("[']","", textoMostrador)
 textoMostrador<-gsub("[¡]","", textoMostrador)
 textoMostrador<-gsub("[!]","", textoMostrador)
-#Utilización de for para eliminar los grandes espacios entre los titulos
+textoMostrador<-gsub(" "" ","", textoMostrador)
 
+#Utilización de for para eliminar los grandes espacios entre los titulos
 for(i in 1:20){
   textoMostrador<-gsub("  "," ", textoMostrador)
 }
 
-#Se unifican los títulos
-todosLosTitulosMostrador <-""
-for(i in 1:length(textoMostrador)) {
-  todosLosTitulosMostrador<-paste(todosLosTitulosMostrador,"",textoMostrador[[i]])
-}
 
+#===============================TITULOS DE EL MOSTRADOR MERCADOS===============================
 # Se muestran las palabras por separado de todos los títulos
+ 
 print(todosLosTitulosMostrador)
 
 # Se dividen las palabras para poder ordenarlas.
@@ -69,7 +67,38 @@ tablapalabras<-table(unlistnoticias)
 PalabrasContadas<-as.data.frame(tablapalabras)
 
 #Se guardan la lista realizada anteriormente en formato csv
-write.csv(dfPalabrasNoticia, file="PalabrasNoticia.csv")
+write.csv(PalabrasContadas, file="PalabrasNoticia.csv")
+
+ frecuencia<-function(palabrasrepetidas){
+  for(PalabrasContadas[2]) in PalabrasContadas{
+    if((PalabrasContadas[2])>2) 
+  }
+ }
+ 
+ palabrasconFreq<-function()
+plot(PalabrasContadas)
+
+frecuenciade<-list(palabra)
 
 
+
+
+
+
+
+
+
+
+
+palabra<-"Venezuela"
+
+  print(PalabrasContadas))
+  frecuenciade<-function(palabra){
+  Qpalabras<-0
+  for (palabra in PalabrasContadas){
+   if(PalabrasContadas[1]==palabra){
+     Qpalabras<-(Qpalabras+1)  
+   } 
+  return(Qpalabras)
+ }
 
